@@ -41,6 +41,8 @@ public class HipchatServiceImpl implements HipchatService {
 
     @Override
     public void notifyDelete(String targetCluster, String namespace, String deploymentName) {
+        
+	/* Utilizes custom (k8s) and (kleaner) emoticons. Either add those to HipChat or tailor this message accordingly. */
         String hipchatMessage = "&color=purple&message=%28k8s%29%20%28kleaner%29%20Deployment%2C%20replica%20set%2C" +
                 "%20pod%2C%20service%2C%20ingress%2C%20and%20horizontal%20pod%20autoscaler%20resources%20deleted%21%20%7C%20" +
                 "SERVICE%20NAME%20=%20" +
