@@ -1,0 +1,13 @@
+nsiColor.BRIGHT_BLUE}.-. .-')  ${AnsiColor.BRIGHT_YELLOW}           .-. .-')    ('-.  ${AnsiColor.BRIGHT_BLUE}.-. .-')  ${AnsiColor.BRIGHT_YELLOW}            ('-.   ('-.         .-') _   ('-.  _  .-')
+${AnsiColor.BRIGHT_BLUE}\  ( OO ) ${AnsiColor.BRIGHT_YELLOW}           \  ( OO ) _(  OO) ${AnsiColor.BRIGHT_BLUE}\  ( OO ) ${AnsiColor.BRIGHT_YELLOW}          _(  OO) ( OO ).-.    ( OO ) )_(  OO)( \( -O )
+${AnsiColor.BRIGHT_BLUE},--. ,--. ${AnsiColor.BRIGHT_YELLOW},--. ,--.   ;-----.\(,------.${AnsiColor.BRIGHT_BLUE},--. ,--. ${AnsiColor.BRIGHT_YELLOW},--.     (,------./ . --. /,--./ ,--,'(,------.,------.
+${AnsiColor.BRIGHT_BLUE}|  .'   / ${AnsiColor.BRIGHT_YELLOW}|  | |  |   | .-.  | |  .---'${AnsiColor.BRIGHT_BLUE}|  .'   / ${AnsiColor.BRIGHT_YELLOW}|  |.-')  |  .---'| \-.  \ |   \ |  |\ |  .---'|   /`. '
+${AnsiColor.BRIGHT_BLUE}|      /, ${AnsiColor.BRIGHT_YELLOW}|  | | .-') | '-' /_)|  |    ${AnsiColor.BRIGHT_BLUE}|      /, ${AnsiColor.BRIGHT_YELLOW}|  | OO ) |  |  .-'-'  |  ||    \|  | )|  |    |  /  | |
+${AnsiColor.BRIGHT_BLUE}|     ' _)${AnsiColor.BRIGHT_YELLOW}|  |_|( OO )| .-. `.(|  '--. ${AnsiColor.BRIGHT_BLUE}|     ' _)${AnsiColor.BRIGHT_YELLOW}|  |`-' |(|  '--.\| |_.'  ||  .     |/(|  '--. |  |_.' |
+${AnsiColor.BRIGHT_BLUE}|  .   \  ${AnsiColor.BRIGHT_YELLOW}|  | | `-' /| |  \  ||  .--' ${AnsiColor.BRIGHT_BLUE}|  .   \ ${AnsiColor.BRIGHT_YELLOW}(|  '---.' |  .--' |  .-.  ||  |\    |  |  .--' |  .  '.'
+${AnsiColor.BRIGHT_BLUE}|  |\   \${AnsiColor.BRIGHT_YELLOW}('  '-'(_.-' | '--'  /|  `---.${AnsiColor.BRIGHT_BLUE}|  |\   \ ${AnsiColor.BRIGHT_YELLOW}|      |  |  `---.|  | |  ||  | \   |  |  `---.|  |\  \
+${AnsiColor.BRIGHT_BLUE}`--' '--'  ${AnsiColor.BRIGHT_YELLOW}`-----'    `------' `------'${AnsiColor.BRIGHT_BLUE}`--' '--' ${AnsiColor.BRIGHT_YELLOW}`------'  `------'`--' `--'`--'  `--'  `------'`--' '--'
+
+${AnsiColor.GREEN}:: KubeKleaner ${application.formatted-version} ::
+${AnsiColor.BLUE}:: Spring Boot ${spring-boot.formatted-version} ::
+${AnsiColor.WHITE}
