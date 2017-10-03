@@ -38,6 +38,10 @@ Upon a successful cleanup by KubeKleaner, a HipChat notification (if configured)
 * Namespace
 * Kubernetes cluster
 
+Below is an example of such a notification.
+
+![alt text](https://github.com/att/kubekleaner/blob/master/src/main/resources/kubekleanerhipchatnotification.PNG "Example KubeKleaner HipChat notification")
+
 ## Maven Tasks
 Build and test
 ````bash
