@@ -1,10 +1,5 @@
 # KubeKleaner
 
-<p align="center"> 
-<img src="https://github.com/att/kubekleaner/blob/master/src/main/resources/k8s.png">
-<img src="https://github.com/att/kubekleaner/blob/master/src/main/resources/kleaner.png">
-</p>
-
 ## Development Information
 
 Developed for AT&T by Tremaine Eto (https://github.com/tremaineeto), June 2017
