@@ -1,8 +1,8 @@
 # KubeKleaner
 
 <p align="center"> 
-![alt text](https://github.com/att/kubekleaner/blob/master/src/main/resources/k8s.png "Kube")
-![alt text](https://github.com/att/kubekleaner/blob/master/src/main/resources/kleaner.png "Kleaner")
+<img src="https://github.com/att/kubekleaner/blob/master/src/main/resources/k8s.png">
+<img src="https://github.com/att/kubekleaner/blob/master/src/main/resources/kleaner.png">
 </p>
 
 ## Development Information
