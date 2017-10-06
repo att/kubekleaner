@@ -33,7 +33,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.att.eg.common.platform.kubekleaner", "com.att.ajsc""})
+@ComponentScan(basePackages = {"com.att.eg.common.platform.kubekleaner", "com.att.ajsc"})
 @EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class Application {
 

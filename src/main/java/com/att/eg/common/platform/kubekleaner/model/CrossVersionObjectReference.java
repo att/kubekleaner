@@ -30,17 +30,17 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AutoscalerResource {
+
+public class CrossVersionObjectReference {
+    private String name;
     private String apiVersion;
     private String kind;
-    private Metadata metadata;
-    private AutoscalerSpec spec;
 
-    public AutoscalerResource export(){
-        if(this.getMetadata() != null){
-            this.setMetadata(metadata.export());
-        }
-        return this;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
     public String getApiVersion() {
         return apiVersion;
@@ -54,17 +54,4 @@ public class AutoscalerResource {
     public void setKind(String kind) {
         this.kind = kind;
     }
-    public Metadata getMetadata() {
-        return metadata;
-    }
-    public void setMetadata(Metadata metadata) {
-        this.metadata = metadata;
-    }
-    public AutoscalerSpec getSpec() {
-        return spec;
-    }
-    public void setSpec(AutoscalerSpec spec) {
-        this.spec = spec;
-    }
-
 }

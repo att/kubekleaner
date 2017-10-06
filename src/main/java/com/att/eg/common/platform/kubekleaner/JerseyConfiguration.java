@@ -36,8 +36,6 @@ import org.springframework.stereotype.Component;
 import com.att.ajsc.common.AbstractJerseyConfiguration;
 import com.att.ajsc.common.messaging.LogRequestFilter;
 
-import com.att.eg.common.platform.kubekleaner.service.rs.RestServiceImpl;
-
 @Component
 @ApplicationPath("/")
 public class JerseyConfiguration extends AbstractJerseyConfiguration {
@@ -48,7 +46,6 @@ public class JerseyConfiguration extends AbstractJerseyConfiguration {
     		@Value("${ajsc.jersey.loggingfilter.enabled:false}") boolean jerseyLoggingFilterEnabled, 
     		@Value("${ajsc.jersey.loggingfilter.printentity.enabled:false}") boolean jerseyLoggingFilterPrintEntityEnabled) {
 		
-		super(log, lrf, jerseyLoggingFilterEnabled, jerseyLoggingFilterPrintEntityEnabled);    	
-        	register(RestServiceImpl.class);
+		super(log, lrf, jerseyLoggingFilterEnabled, jerseyLoggingFilterPrintEntityEnabled);
     }
 }

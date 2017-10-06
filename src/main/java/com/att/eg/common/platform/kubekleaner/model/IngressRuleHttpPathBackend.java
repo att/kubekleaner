@@ -23,8 +23,7 @@ THE SOFTWARE.
 
 */
 
-
-ckage com.att.eg.common.platform.kubekleaner.model;
+package com.att.eg.common.platform.kubekleaner.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
