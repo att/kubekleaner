@@ -49,15 +49,6 @@ Below is an example of such a notification.
 
 ![alt text](https://github.com/att/kubekleaner/blob/master/src/main/resources/kubekleanerhipchatnotification.PNG "Example KubeKleaner HipChat notification")
 
-## Maven Tasks
-Build and test
-````bash
-$ mvn clean install
-````
+## License
 
-## Service
-
-````bash
-$ java -jar ./target/{your-project-compiled}.jar
-````
-
+KubeKleaner is under the MIT License and is Copyright (c) 2017 AT&T Intellectual Property. All other rights reserved.
