@@ -1,6 +1,4 @@
-The below is quoted directly from [usage_guidelines.md](https://github.com/
-kubernetes/kubernetes/blob/master/logo/usage_guidelines.md) from the 
-Kubernetes project on GitHub.
+The below is quoted directly from [usage_guidelines.md](https://github.com/kubernetes/kubernetes/blob/master/logo/usage_guidelines.md) from the Kubernetes project on GitHub.
 
 # Branding Guidelines
 
