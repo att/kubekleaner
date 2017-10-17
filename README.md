@@ -31,6 +31,8 @@ The cleanup process loops through all pods in the specified cluster(s) and works
 2. If timestamp label is on deployment resource and the pod now is in a Running state, remove timestamp label from its associated deployment resource
 3. If timestamp label is on deployment resource and is older than the configured expiration and the pod is still in a CrashLoopBackOff state, delete all associated Kubernetes resources (deployment, replica set, pod,  service, ingress, and hpa)
 
+To see this specific implemention, then please refer to [CleanupServiceImpl.java](https://github.com/att/kubekleaner/blob/master/src/main/java/com/att/eg/common/platform/kubekleaner/service/CleanupServiceImpl.java).
+
 ## Defaults
 
 As configured by default, KubeKleaner runs once daily at 10:00 A.M. PST.
