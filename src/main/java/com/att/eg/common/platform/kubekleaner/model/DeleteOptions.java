@@ -7,16 +7,17 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
-public class IngressResource {
+public class DeleteOptions {
 	private String apiVersion;
 	private String kind;
-	private Metadata metadata;
-	private IngressSpec spec;
+	private Integer gracePeriodSeconds;
+	private Boolean orphanDependents;
+	private String propagationPolicy;
+	private Preconditions preconditions;
 	
-	public IngressResource export(){
-		if(this.getMetadata() != null){
-			this.setMetadata(metadata.export());
-		}
-		return this;
+	public DeleteOptions(){
+		this.apiVersion = "v1";
+		this.kind = "DeleteOptions";
+		this.propagationPolicy = "Foreground";
 	}
 }
