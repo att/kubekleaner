@@ -7,16 +7,11 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
-public class IngressResource {
+public class OwnerReference {
 	private String apiVersion;
 	private String kind;
-	private Metadata metadata;
-	private IngressSpec spec;
-	
-	public IngressResource export(){
-		if(this.getMetadata() != null){
-			this.setMetadata(metadata.export());
-		}
-		return this;
-	}
+	private String name;
+	private String uid;
+	private Boolean controller;
+	private Boolean blockOwnerDeletion;
 }
