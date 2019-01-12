@@ -53,4 +53,4 @@ Below is an example of such a notification.
 
 ## License
 
-KubeKleaner is under the MIT License and is Copyright (c) 2017 AT&T Intellectual Property. All other rights reserved.
+KubeKleaner is under the MIT License and is Copyright (c) 2017-2019 AT&T Intellectual Property. All other rights reserved.
