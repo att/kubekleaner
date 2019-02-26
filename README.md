@@ -21,6 +21,8 @@ KubeKleaner—short for Kubernetes Kleaner—is a Java application built on the 
 
 KubeKleaner utilizes Spring Boot's scheduled task functionality to leverage the Kubernetes API for deleting failing microservice deployments and their downstream resources based on a configurable expiration time.
 
+KubeKleaner can be leveraged by packaging the Maven project and then building it into a Docker image to be deployed directly in a Kubernetes cluster. From there, it can then clean up resources as long as the pod is running fine.
+
 ## Cleanup Process
 
 The cleanup process is configurable but by default happens once daily. The Kubernetes clusters that KubeKleaner can reach is configured in the application's properties file.
