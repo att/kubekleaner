@@ -3,7 +3,7 @@ package main.java.com.att.eg.common.platform.kubekleaner.model;
 import com.att.eg.monitoring.annotations.statuscodes.IntegerValued;
 import com.att.eg.monitoring.annotations.statuscodes.MonitoredStatusCode;
 
-public enum YawlStatus implements IntegerValued {
+public enum Status implements IntegerValued {
     @MonitoredStatusCode("Success")
     OK(0),
     @MonitoredStatusCode("Something bad happened")
@@ -13,7 +13,7 @@ public enum YawlStatus implements IntegerValued {
     
     private int value;
 
-    private YawlStatus(int value) {
+    private Status(int value) {
         this.value = value;
     }
 
