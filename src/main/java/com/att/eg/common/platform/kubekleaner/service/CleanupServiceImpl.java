@@ -52,6 +52,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 @ConfigurationProperties(prefix="kubernetes")
@@ -93,51 +95,65 @@ public class CleanupServiceImpl implements CleanupService {
 	private String namespaceLiteral = "NAMESPACE";
 	private String clusterLiteral = "CLUSTER";
 	private Boolean alreadyRemovedLabelFromDeployment = false;
-	
+
+	Logger logger = LoggerFactory.getLogger(CleanupServiceImpl.class);
+
 	public CleanupServiceImpl() {
 		// needed for instantiation
 	}
 
 	public void addLabel(PodResource pod, DeploymentResource deployment, String cluster, String namespace,
 						 String name) {
-		if (pod.getStatus().getContainerStatuses() != null && !"default".equals(namespace)
-				&& !"kube-system".equals(namespace) && pod.getStatus().getContainerStatuses()[0]
-				.getState().getWaiting() != null) {
-			if (deployment.getMetadata().getLabels().get(crashLoopDetectionTimeLiteral) == null) {	// NOSONAR need 4 conditionals
-				deploymentResourceService.addLabel(cluster, namespace, name);
+		try {
+			if (pod.getStatus().getContainerStatuses() != null && !"default".equals(namespace)
+					&& !"kube-system".equals(namespace) && pod.getStatus().getContainerStatuses()[0]
+					.getState().getWaiting() != null) {
+				if (deployment.getMetadata().getLabels().get(crashLoopDetectionTimeLiteral) == null) {    // NOSONAR need 4 conditionals
+					deploymentResourceService.addLabel(cluster, namespace, name);
+				}
 			}
+		} catch (Exception ex) {
+			logger.error("Add label exception", ex);
 		}
 	}
 
 	public void removeLabel(PodResource pod, DeploymentResource deployment, String cluster, String namespace,
 									 String name) {
-		if (pod.getStatus().getContainerStatuses() != null && pod.getStatus().getContainerStatuses()[0].getState()
-				.getRunning() != null && deployment.getMetadata().getLabels()
-				.get(crashLoopDetectionTimeLiteral) != null) {
-			deploymentResourceService.removeLabel(cluster, namespace, name);
-			alreadyRemovedLabelFromDeployment = true;
+		try {
+			if (pod.getStatus().getContainerStatuses() != null && pod.getStatus().getContainerStatuses()[0].getState()
+					.getRunning() != null && deployment.getMetadata().getLabels()
+					.get(crashLoopDetectionTimeLiteral) != null) {
+				deploymentResourceService.removeLabel(cluster, namespace, name);
+				alreadyRemovedLabelFromDeployment = true;
+			}
+		} catch (Exception ex) {
+			logger.error("Remove label exception", ex);
 		}
 	}
 
 	public void removeResources(PodResource pod, DeploymentResource deployment, String cluster, String namespace,
 								String name) {
-		if (pod.getStatus().getContainerStatuses() != null && pod.getStatus().getContainerStatuses()[0]
-				.getState().getWaiting() != null && deployment.getMetadata().getLabels()
-				.get(crashLoopDetectionTimeLiteral) != null) {
-			DateTime currentTime = new DateTime();
-			DateTimeFormatter format = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH.mm.ss'Z'");
-			DateTime timeCutoff = currentTime.minusWeeks(kubernetesConfig.getNumWeeks());
-			DateTime crashLoopTime = format.parseDateTime(deployment.getMetadata().getLabels()
-					.get(crashLoopDetectionTimeLiteral)).toDateTime();
-			if (timeCutoff.isAfter(crashLoopTime)) {
-				deploymentResourceService.deleteDeploymentResource(cluster, namespace, name);
-				replicasetResourceService.deleteReplicasetResource(cluster, namespace, name);
-				podResourceService.deletePodResource(cluster, namespace, name);
-				serviceResourceService.deleteService(cluster, namespace, name);
-				ingressResourceService.deleteIngressResource(cluster, namespace, name);
-				autoscalerResourceService.deleteAutoscaler(cluster, namespace, name);
-				hipchatService.notifyDelete(cluster, namespace, name);
+		try {
+			if (pod.getStatus().getContainerStatuses() != null && pod.getStatus().getContainerStatuses()[0]
+					.getState().getWaiting() != null && deployment.getMetadata().getLabels()
+					.get(crashLoopDetectionTimeLiteral) != null) {
+				DateTime currentTime = new DateTime();
+				DateTimeFormatter format = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH.mm.ss'Z'");
+				DateTime timeCutoff = currentTime.minusWeeks(kubernetesConfig.getNumWeeks());
+				DateTime crashLoopTime = format.parseDateTime(deployment.getMetadata().getLabels()
+						.get(crashLoopDetectionTimeLiteral)).toDateTime();
+				if (timeCutoff.isAfter(crashLoopTime)) {
+					deploymentResourceService.deleteDeploymentResource(cluster, namespace, name);
+					replicasetResourceService.deleteReplicasetResource(cluster, namespace, name);
+					podResourceService.deletePodResource(cluster, namespace, name);
+					serviceResourceService.deleteService(cluster, namespace, name);
+					ingressResourceService.deleteIngressResource(cluster, namespace, name);
+					autoscalerResourceService.deleteAutoscaler(cluster, namespace, name);
+					hipchatService.notifyDelete(cluster, namespace, name);
+				}
 			}
+		} catch (Exception ex) {
+			logger.error("Remove resources exception", ex);
 		}
 	}
 
